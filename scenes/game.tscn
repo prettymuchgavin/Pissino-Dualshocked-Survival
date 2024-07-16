@@ -1,0 +1,206 @@
+[gd_scene load_steps=12 format=3 uid="uid://hj0rgcijfxo6"]
+
+[ext_resource type="PackedScene" uid="uid://r8iqdg4tcs2l" path="res://scenes/player.tscn" id="1_kyj0x"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_uivmw"]
+[ext_resource type="PackedScene" uid="uid://hdasbxnc6fo2" path="res://scenes/weapon_pick_up.tscn" id="2_po8fr"]
+[ext_resource type="AudioStream" uid="uid://blmycd8ubc6mv" path="res://audio/good_mode_escape.ogg" id="4_mh8ta"]
+
+[sub_resource type="Environment" id="Environment_h4ndm"]
+background_mode = 1
+background_color = Color(1, 1, 0.654902, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.485703, 0.485704, 0.485703, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l2r0t"]
+font_size = 70
+
+[sub_resource type="Animation" id="Animation_ddmn3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 453)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rtbua"]
+resource_name = "anim"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 2, 2.5),
+"transitions": PackedFloat32Array(0.406126, 0.466516, 0.466516, 0.406126),
+"update": 0,
+"values": [Vector2(-61, 453), Vector2(32, 453), Vector2(32, 453), Vector2(-61, 453)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4352f"]
+_data = {
+"RESET": SubResource("Animation_ddmn3"),
+"anim": SubResource("Animation_rtbua")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cn14y"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imnhj"]
+albedo_color = Color(0.543828, 0.343657, 0.00909084, 1)
+
+[node name="GAME" type="Node3D"]
+script = ExtResource("1_uivmw")
+
+[node name="Player" parent="." instance=ExtResource("1_kyj0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.985832, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h4ndm")
+
+[node name="weaponPickUp" parent="." instance=ExtResource("2_po8fr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61177, -5)
+weaponType = "gun"
+
+[node name="enemySpawners" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="1" type="Marker3D" parent="enemySpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16631, 2.57747, 7.18246)
+
+[node name="2" type="Marker3D" parent="enemySpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0613, 2.57747, -3.50554)
+
+[node name="3" type="Marker3D" parent="enemySpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0464, 2.57747, -4.60174)
+
+[node name="4" type="Marker3D" parent="enemySpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.05037, 2.57747, -19.8573)
+
+[node name="5" type="Marker3D" parent="enemySpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.11865, 2.57747, -18.3043)
+
+[node name="spawnTimer" type="Timer" parent="enemySpawners"]
+
+[node name="ROUNDS" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -61.0
+offset_top = 453.0
+offset_right = 255.0
+offset_bottom = 549.0
+text = "ROUND 1"
+label_settings = SubResource("LabelSettings_l2r0t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ROUNDS"]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_4352f")
+}
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mh8ta")
+volume_db = -13.117
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305115, 0, -4.12121)
+use_collision = true
+size = Vector3(57.0402, 1, 40.094)
+material = SubResource("StandardMaterial3D_cn14y")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4578, 2.96955, -9.9069)
+use_collision = true
+size = Vector3(4.44486, 6.04639, 4.0015)
+material = SubResource("StandardMaterial3D_imnhj")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4026, 2.96955, 7.49248)
+use_collision = true
+size = Vector3(4.44486, 6.04639, 4.0015)
+material = SubResource("StandardMaterial3D_imnhj")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.731, 2.96955, -6.42703)
+use_collision = true
+size = Vector3(4.44486, 6.04639, 4.0015)
+material = SubResource("StandardMaterial3D_imnhj")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.398396, 2.96955, -13.5111)
+use_collision = true
+size = Vector3(4.44486, 6.04639, 4.0015)
+material = SubResource("StandardMaterial3D_imnhj")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5383, 2.96955, -11.3983)
+use_collision = true
+size = Vector3(4.44486, 6.04639, 4.0015)
+material = SubResource("StandardMaterial3D_imnhj")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.7195, 2.96955, 9.85382)
+use_collision = true
+size = Vector3(4.44486, 6.04639, 4.0015)
+material = SubResource("StandardMaterial3D_imnhj")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8761, 2.96955, -18.5111)
+use_collision = true
+size = Vector3(4.44486, 6.04639, 4.0015)
+material = SubResource("StandardMaterial3D_imnhj")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9774, 2.96955, -0.241713)
+use_collision = true
+size = Vector3(4.44486, 6.04639, 4.0015)
+material = SubResource("StandardMaterial3D_imnhj")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3796, 2.96955, 7.58801)
+use_collision = true
+size = Vector3(4.44486, 6.04639, 4.0015)
+material = SubResource("StandardMaterial3D_imnhj")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7811, 2.96955, -21.7424)
+use_collision = true
+size = Vector3(4.44486, 6.04639, 4.0015)
+material = SubResource("StandardMaterial3D_imnhj")
+
+[connection signal="killedSomething" from="Player" to="." method="_on_player_killed_something"]
+[connection signal="pickedup" from="weaponPickUp" to="." method="_on_weapon_pick_up_pickedup"]
+[connection signal="timeout" from="enemySpawners/spawnTimer" to="." method="_on_spawn_timer_timeout"]

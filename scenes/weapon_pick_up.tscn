@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://hdasbxnc6fo2"]
+
+[ext_resource type="Texture2D" uid="uid://cfl5fawcvpwmi" path="res://assets/pickups/gun.png" id="1_0dcg4"]
+[ext_resource type="Script" path="res://scripts/weapon_pick_up.gd" id="1_mtuow"]
+
+[sub_resource type="Animation" id="Animation_ptosp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.121096, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m32dv"]
+resource_name = "hover"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.121096, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fxq7c"]
+_data = {
+"RESET": SubResource("Animation_ptosp"),
+"hover": SubResource("Animation_m32dv")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tx3v4"]
+
+[node name="weaponPickUp" type="Node3D"]
+script = ExtResource("1_mtuow")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.91503, 0, 0, 0, 0.91503, 0, 0, 0, 0.91503, 0, -0.121096, 0)
+billboard = 2
+texture = ExtResource("1_0dcg4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
+libraries = {
+"": SubResource("AnimationLibrary_fxq7c")
+}
+autoplay = "hover"
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_tx3v4")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
