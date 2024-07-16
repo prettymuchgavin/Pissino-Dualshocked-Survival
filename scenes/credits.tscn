@@ -13,10 +13,10 @@ offset_bottom = 650.0
 texture = ExtResource("1_jm6lh")
 
 [node name="Button" type="Button" parent="."]
-offset_left = 708.0
-offset_top = 22.0
-offset_right = 845.0
-offset_bottom = 95.0
+offset_left = 984.0
+offset_top = 100.0
+offset_right = 1121.0
+offset_bottom = 173.0
 icon = ExtResource("2_ttn8c")
 flat = true
 
