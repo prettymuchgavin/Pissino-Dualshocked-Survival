@@ -93,7 +93,7 @@ func restart():
 
 func shoot():
 	if ammo == 0:
-		animatedSprite.play("gunShootFail")
+		return
 	else:
 		ammo -= 1
 		can_shoot = false
