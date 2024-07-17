@@ -725,6 +725,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
+transform = Transform3D(1.31019, 0, 0, 0, 1.31019, 0, 0, 0, 1.31019, 0, 0, 0)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_evhr0")

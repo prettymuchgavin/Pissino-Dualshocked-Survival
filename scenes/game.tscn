@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://hj0rgcijfxo6"]
+[gd_scene load_steps=13 format=3 uid="uid://hj0rgcijfxo6"]
 
-[ext_resource type="PackedScene" uid="uid://r8iqdg4tcs2l" path="res://scenes/player.tscn" id="1_kyj0x"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_uivmw"]
 [ext_resource type="PackedScene" uid="uid://hdasbxnc6fo2" path="res://scenes/weapon_pick_up.tscn" id="2_po8fr"]
+[ext_resource type="PackedScene" uid="uid://cmt8bpup24exp" path="res://scenes/SPAWNERS/playerSpawner.tscn" id="4_0d5ir"]
 [ext_resource type="AudioStream" uid="uid://blmycd8ubc6mv" path="res://audio/good_mode_escape.ogg" id="4_mh8ta"]
+[ext_resource type="PackedScene" uid="uid://cr4w8fjwa2ib3" path="res://scenes/SPAWNERS/enemy_spawner.tscn" id="5_tr8qh"]
 
 [sub_resource type="Environment" id="Environment_h4ndm"]
 background_mode = 1
@@ -84,35 +85,12 @@ albedo_color = Color(0.543828, 0.343657, 0.00909084, 1)
 [node name="GAME" type="Node3D"]
 script = ExtResource("1_uivmw")
 
-[node name="Player" parent="." instance=ExtResource("1_kyj0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.985832, 0)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h4ndm")
 
 [node name="weaponPickUp" parent="." instance=ExtResource("2_po8fr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61177, -5)
 weaponType = "gun"
-
-[node name="enemySpawners" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
-[node name="1" type="Marker3D" parent="enemySpawners"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16631, 2.57747, 7.18246)
-
-[node name="2" type="Marker3D" parent="enemySpawners"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0613, 2.57747, -3.50554)
-
-[node name="3" type="Marker3D" parent="enemySpawners"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0464, 2.57747, -4.60174)
-
-[node name="4" type="Marker3D" parent="enemySpawners"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.05037, 2.57747, -19.8573)
-
-[node name="5" type="Marker3D" parent="enemySpawners"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.11865, 2.57747, -18.3043)
-
-[node name="spawnTimer" type="Timer" parent="enemySpawners"]
 
 [node name="ROUNDS" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -201,6 +179,30 @@ use_collision = true
 size = Vector3(4.44486, 6.04639, 4.0015)
 material = SubResource("StandardMaterial3D_imnhj")
 
-[connection signal="killedSomething" from="Player" to="." method="_on_player_killed_something"]
+[node name="playerSpawner" parent="." node_paths=PackedStringArray("rootNode") instance=ExtResource("4_0d5ir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0103426, 1.79805, 0.0434456)
+rootNode = NodePath("..")
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="1" parent="Enemies" node_paths=PackedStringArray("rootScene") instance=ExtResource("5_tr8qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0169, 1.71268, 7.78795)
+rootScene = NodePath("../..")
+
+[node name="2" parent="Enemies" node_paths=PackedStringArray("rootScene") instance=ExtResource("5_tr8qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6221, 1.71268, -1.27862)
+rootScene = NodePath("../..")
+
+[node name="3" parent="Enemies" node_paths=PackedStringArray("rootScene") instance=ExtResource("5_tr8qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1571, 1.71268, -12.3794)
+rootScene = NodePath("../..")
+
+[node name="4" parent="Enemies" node_paths=PackedStringArray("rootScene") instance=ExtResource("5_tr8qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60162, 1.71268, -20.1092)
+rootScene = NodePath("../..")
+
+[node name="5" parent="Enemies" node_paths=PackedStringArray("rootScene") instance=ExtResource("5_tr8qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0233, 1.71268, 12.6316)
+rootScene = NodePath("../..")
+
 [connection signal="pickedup" from="weaponPickUp" to="." method="_on_weapon_pick_up_pickedup"]
-[connection signal="timeout" from="enemySpawners/spawnTimer" to="." method="_on_spawn_timer_timeout"]

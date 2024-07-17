@@ -75,6 +75,7 @@ func _process(delta):
 func _physics_process(delta):
 	if dead or !canMove:
 		return
+	velocity.y -= 10
 	var input_dir = Input.get_vector("move_left"+str(playerNum), "move_right"+str(playerNum), "move_forwards"+str(playerNum), "move_backwards"+str(playerNum))
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -113,6 +114,7 @@ func killPlayer():
 	$CanvasLayer/GunBase.hide()
 	$CanvasLayer/DeathScreen/gameOver.play()
 	$Camera3D2.current = true
+	$CanvasLayer/DeathScreen/Panel/Label2.text = "SURVIVED TILL ROUND "+str(Global.currentRound)
 	get_tree().paused = true
 
 func getItem(weapon:String):

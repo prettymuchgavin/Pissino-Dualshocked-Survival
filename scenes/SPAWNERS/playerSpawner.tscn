@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmt8bpup24exp"]
+
+[ext_resource type="Script" path="res://scripts/playerSpawner.gd" id="1_hp117"]
+[ext_resource type="Texture2D" uid="uid://b6pe6uv14edxj" path="res://assets/playerSpawner.png" id="1_m2s3s"]
+[ext_resource type="PackedScene" uid="uid://r8iqdg4tcs2l" path="res://scenes/player.tscn" id="2_t17nq"]
+
+[node name="playerSpawner" type="Node3D"]
+script = ExtResource("1_hp117")
+playerScene = ExtResource("2_t17nq")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("1_m2s3s")
