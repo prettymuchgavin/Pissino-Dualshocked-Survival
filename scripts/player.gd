@@ -4,11 +4,12 @@ extends CharacterBody3D
 @onready var raycast = $RayCast3D
 @onready var shootsound = $gunShot
 
-const SPEED = 5.0
+const SPEED = 8.0
 const MOUSE_SENS = 0.5
 
 signal killedSomething
 
+var score = 0
 
 var reloading = false
 var playerNum = 1
@@ -35,6 +36,7 @@ func _input(event):
 		rotation_degrees.y -= event.relative.x * MOUSE_SENS
 
 func _process(delta):
+	$CanvasLayer/TV/ScoreStuff/Label2.text = str(score)
 	$CanvasLayer/ammo.text = "AMMO: "+str(ammo)
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()
@@ -95,6 +97,7 @@ func shoot():
 	if ammo == 0:
 		return
 	else:
+		score += 10
 		ammo -= 1
 		can_shoot = false
 		shootsound.play()
@@ -122,6 +125,7 @@ func getItem(weapon:String):
 		$grabGun.play()
 		animatedSprite.play("gunPickup")
 		currentWeapon = "gun"
+		$CanvasLayer/TV.startTV()
 
 
 func _on_animated_sprite_2d_animation_finished():

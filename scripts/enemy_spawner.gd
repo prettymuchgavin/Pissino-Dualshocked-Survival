@@ -3,8 +3,9 @@ extends Node3D
 @export var enemies : Array[PackedScene]
 @export var rootScene : Node3D
 
+var rng = RandomNumberGenerator.new()
 func _ready():
-	$Sprite3D.hide()
+	#$Sprite3D.hide()
 	rootScene.connect("startGame", startSpawning)
 
 func spawnEnemy():
@@ -13,7 +14,9 @@ func spawnEnemy():
 	enemy.transform.origin = position
 
 func startSpawning():
-	$spawnTimer.start(1)
+	rng.randomize()
+	var randomTime = rng.randi_range(0.1, 3)
+	$spawnTimer.start(randomTime)
 
 func stopSpawning():
 	$spawnTimer.stop()
@@ -21,6 +24,7 @@ func stopSpawning():
 
 func _on_spawn_timer_timeout():
 	if rootScene.maxEnemies == rootScene.currentEnemies:
+		stopSpawning()
 		return
 	spawnEnemy()
 	rootScene.currentEnemies += 1

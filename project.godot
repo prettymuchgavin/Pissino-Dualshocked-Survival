@@ -137,3 +137,7 @@ taunt2={
 
 3d_physics/layer_1="environment"
 3d_physics/layer_2="characters"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

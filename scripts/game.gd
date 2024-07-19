@@ -4,9 +4,11 @@ var maxEnemies = 1
 var currentEnemies = 0
 var killedEnemies = 0
 
+
 signal startGame
 
 func _ready():
+	Global.currentRound = 1
 	$playerSpawner.spawnPlayer()
 
 func _process(delta):
@@ -18,12 +20,13 @@ func newRound():
 	maxEnemies *= 2
 	Global.currentRound += 1
 	$ROUNDS/AnimationPlayer.play("anim", false)
+	emit_signal("startGame")
 
 func _on_weapon_pick_up_pickedup():
 	$music.play()
 	$ROUNDS/AnimationPlayer.play("anim")
 	emit_signal("startGame")
-
+	
 
 func _on_player_killed_something():
 	killedEnemies += 1

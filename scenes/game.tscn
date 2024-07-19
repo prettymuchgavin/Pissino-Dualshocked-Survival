@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://hj0rgcijfxo6"]
+[gd_scene load_steps=14 format=3 uid="uid://hj0rgcijfxo6"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_uivmw"]
 [ext_resource type="PackedScene" uid="uid://hdasbxnc6fo2" path="res://scenes/weapon_pick_up.tscn" id="2_po8fr"]
+[ext_resource type="FontFile" uid="uid://b71806nd40i6w" path="res://assets/UI/comboFont/comboFont.png" id="3_rm5h2"]
 [ext_resource type="PackedScene" uid="uid://cmt8bpup24exp" path="res://scenes/SPAWNERS/playerSpawner.tscn" id="4_0d5ir"]
 [ext_resource type="AudioStream" uid="uid://blmycd8ubc6mv" path="res://audio/good_mode_escape.ogg" id="4_mh8ta"]
 [ext_resource type="PackedScene" uid="uid://cr4w8fjwa2ib3" path="res://scenes/SPAWNERS/enemy_spawner.tscn" id="5_tr8qh"]
@@ -13,6 +14,7 @@ ambient_light_source = 2
 ambient_light_color = Color(0.485703, 0.485704, 0.485703, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_l2r0t"]
+font = ExtResource("3_rm5h2")
 font_size = 70
 
 [sub_resource type="Animation" id="Animation_ddmn3"]
@@ -190,19 +192,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0169, 1.71268, 7.78795)
 rootScene = NodePath("../..")
 
 [node name="2" parent="Enemies" node_paths=PackedStringArray("rootScene") instance=ExtResource("5_tr8qh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6221, 1.71268, -1.27862)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.6344, 1.71268, -1.27862)
 rootScene = NodePath("../..")
 
 [node name="3" parent="Enemies" node_paths=PackedStringArray("rootScene") instance=ExtResource("5_tr8qh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1571, 1.71268, -12.3794)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97629, 1.71268, -21.5094)
 rootScene = NodePath("../..")
 
 [node name="4" parent="Enemies" node_paths=PackedStringArray("rootScene") instance=ExtResource("5_tr8qh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60162, 1.71268, -20.1092)
-rootScene = NodePath("../..")
-
-[node name="5" parent="Enemies" node_paths=PackedStringArray("rootScene") instance=ExtResource("5_tr8qh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0233, 1.71268, 12.6316)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60162, 1.71268, 9.8908)
 rootScene = NodePath("../..")
 
 [connection signal="pickedup" from="weaponPickUp" to="." method="_on_weapon_pick_up_pickedup"]

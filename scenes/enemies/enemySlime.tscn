@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://by7n27dhnb0c2" path="res://assets/enemies/slime/ac02facfcb00435be92b5e3fe974deadXVRJFfaG0gapqPJg-4.png" id="6_hutyv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yb2x2"]
-radius = 0.609802
+radius = 0.468487
 height = 2.27198
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c22i8"]
@@ -35,7 +35,7 @@ animations = [{
 }]
 
 [node name="EnemySlime" type="CharacterBody3D"]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+transform = Transform3D(2.03102, 0, 0, 0, 2.03102, 0, 0, 0, 2.03102, 0, 0, 0)
 script = ExtResource("1_7ylg3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
