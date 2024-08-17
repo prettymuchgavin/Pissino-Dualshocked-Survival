@@ -32,5 +32,3 @@ func _on_player_killed_something():
 	killedEnemies += 1
 	if killedEnemies == maxEnemies:
 		newRound()
-
-

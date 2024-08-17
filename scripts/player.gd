@@ -28,6 +28,7 @@ func _ready():
 		$DirectionalSprite.texture = load("res://assets/shart/playerSprites/idle/sprite_sheet.png")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$CanvasLayer/DeathScreen/Panel/Button.button_up.connect(restart)
+	get_tree().call_group("DirectionalSprite", "set_camera", self)
 
 func _input(event):
 	if dead:

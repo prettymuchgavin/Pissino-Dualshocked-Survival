@@ -91,7 +91,7 @@ script = ExtResource("1_uivmw")
 environment = SubResource("Environment_h4ndm")
 
 [node name="weaponPickUp" parent="." instance=ExtResource("2_po8fr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61177, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01911, -5)
 weaponType = "gun"
 
 [node name="ROUNDS" type="Label" parent="."]
