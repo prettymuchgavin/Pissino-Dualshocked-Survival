@@ -23,6 +23,10 @@ Global="*res://scripts/global.gd"
 
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SceneBuilder/plugin.cfg")
+
 [input]
 
 move_forwards1={
