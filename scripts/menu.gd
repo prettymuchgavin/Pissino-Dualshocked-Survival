@@ -7,9 +7,6 @@ func _on_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/intro.tscn")
 
 
-func _on_multiplayer_pressed():
-	Global.coop = true
-	get_tree().change_scene_to_file("res://scenes/intro.tscn")
 
 
 func _on_button_2_pressed():

@@ -26,16 +26,6 @@ theme_override_font_sizes/font_size = 30
 icon = ExtResource("4_b3mod")
 flat = true
 
-[node name="multiplayer" type="Button" parent="."]
-visible = false
-offset_left = 53.0
-offset_top = 570.0
-offset_right = 255.0
-offset_bottom = 620.0
-theme_override_font_sizes/font_size = 30
-text = "CO-OP MODE"
-flat = true
-
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
@@ -58,6 +48,5 @@ theme_override_font_sizes/font_size = 30
 text = "CREDITS"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="multiplayer" to="." method="_on_multiplayer_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
