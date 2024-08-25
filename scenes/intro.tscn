@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkl2sixatrw7f"]
 
 [ext_resource type="Script" path="res://scripts/intro.gd" id="1_emi16"]
-[ext_resource type="VideoStream" path="res://videos/pizza-tower-modem.ogv" id="1_oxku6"]
+[ext_resource type="VideoStream" path="res://videos/intro.ogv" id="2_6svxq"]
 
 [node name="intro" type="Node2D"]
 script = ExtResource("1_emi16")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_right = 1163.0
-offset_bottom = 657.0
-stream = ExtResource("1_oxku6")
+offset_right = 1158.0
+offset_bottom = 656.0
+stream = ExtResource("2_6svxq")
 autoplay = true
 expand = true
 
