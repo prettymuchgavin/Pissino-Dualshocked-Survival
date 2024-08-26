@@ -5,7 +5,7 @@ extends CharacterBody3D
 
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
 var dead = false
-
+var meleeCurrent = false
 
 func _physics_process(delta):
 	if dead:
@@ -19,6 +19,7 @@ func _physics_process(delta):
 	dir = dir.normalized()
 	velocity = dir * move_speed
 	move_and_slide()
+	look_at(player.position)
 	attempt_to_kill_player()
 
 func attempt_to_kill_player():
@@ -35,3 +36,9 @@ func attempt_to_kill_player():
 func kill():
 	dead = true
 	queue_free()
+
+func melee():
+	meleeCurrent = true
+	velocity.y = 400
+	velocity.x = 1000
+	move_and_slide()

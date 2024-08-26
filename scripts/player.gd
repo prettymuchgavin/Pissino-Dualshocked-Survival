@@ -48,6 +48,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("shoot"+str(playerNum)):
 		if can_shoot == true and has_weapon == true and reloading == false:
 			shoot()
+	if Input.is_action_just_pressed("melee"+str(playerNum)):
+		if can_shoot == true and has_weapon == true and reloading == false:
+			melee()
 	if Input.is_action_just_pressed("reload"+str(playerNum)):
 		if ammo < 10 and can_shoot == true:
 			var rng = RandomNumberGenerator.new()
@@ -98,7 +101,6 @@ func shoot():
 	if ammo == 0:
 		return
 	else:
-		score += 10
 		ammo -= 1
 		can_shoot = false
 		shootsound.play()
@@ -106,6 +108,10 @@ func shoot():
 		if raycast.is_colliding() and raycast.get_collider().has_method("kill"):
 			raycast.get_collider().kill()
 			emit_signal("killedSomething")
+			score += 10
+
+func melee():
+	$CanvasLayer/GunBase/AnimatedSprite2D.play("attack2start")
 
 func shootAnimDone():
 	can_shoot = true
@@ -139,6 +145,12 @@ func _on_animated_sprite_2d_animation_finished():
 		ammo += 10 - ammo
 		animatedSprite.play("gunIdle")
 		reloading = false
+	elif animatedSprite.animation == "attack2start":
+		if raycast.is_colliding() and raycast.get_collider().has_method("melee"):
+			raycast.get_collider().melee()
+		animatedSprite.play("attack2")
+	elif animatedSprite.animation == "attack2":
+		shootAnimDone()
 
 
 func _on_taunt_sfx_finished():

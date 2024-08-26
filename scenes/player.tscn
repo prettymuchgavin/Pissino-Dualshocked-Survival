@@ -1,4 +1,4 @@
-[gd_scene load_steps=180 format=4 uid="uid://r8iqdg4tcs2l"]
+[gd_scene load_steps=193 format=4 uid="uid://r8iqdg4tcs2l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_evhr0"]
 [ext_resource type="AudioStream" uid="uid://b622e5kd5gr2w" path="res://audio/vineboom.wav" id="6_gf04c"]
@@ -44,19 +44,32 @@
 [ext_resource type="Texture2D" uid="uid://bktql5f8db0v6" path="res://assets/pissino/handEmpty/f59a2f6e6d6643c690876b5af43a1ef09B7WSIs7kCdnaSsh-18.png" id="29_0sv1e"]
 [ext_resource type="FontFile" uid="uid://b71806nd40i6w" path="res://assets/UI/comboFont/comboFont.png" id="29_73iyr"]
 [ext_resource type="Texture2D" uid="uid://78tu74grsg5h" path="res://assets/pissino/gunIdle/gun_holding.png" id="30_753kv"]
+[ext_resource type="Texture2D" uid="uid://cbv2wln6wcmp4" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-9.png" id="30_e8jrg"]
+[ext_resource type="Texture2D" uid="uid://d4ecs5es27up7" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-10.png" id="31_fte6m"]
 [ext_resource type="Texture2D" uid="uid://bwprk6gffrnf" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-0.png" id="31_qerj5"]
 [ext_resource type="Texture2D" uid="uid://dnkbrethakp88" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-1.png" id="32_1c433"]
+[ext_resource type="Texture2D" uid="uid://bp8kw1a4qjyly" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-11.png" id="32_wh1tn"]
 [ext_resource type="Texture2D" uid="uid://cydjoo0ic1ac5" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-2.png" id="33_aoyqp"]
+[ext_resource type="Texture2D" uid="uid://g7uuc64xei7w" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-12.png" id="33_el0as"]
+[ext_resource type="Texture2D" uid="uid://bjclog3ii2crj" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-0.png" id="34_373cu"]
 [ext_resource type="Texture2D" uid="uid://ckcqop123po40" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-3.png" id="34_wclry"]
 [ext_resource type="Texture2D" uid="uid://dwdvyikmuu0b6" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-4.png" id="35_7ab8t"]
+[ext_resource type="Texture2D" uid="uid://cdk27xk1teyat" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-1.png" id="35_tbqmd"]
+[ext_resource type="Texture2D" uid="uid://bbjy4p42qs432" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-2.png" id="36_607ea"]
 [ext_resource type="Texture2D" uid="uid://d3xw0ccjpbcts" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-5.png" id="36_h7agd"]
+[ext_resource type="Texture2D" uid="uid://d26qecys6vwy8" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-3.png" id="37_1g5ie"]
 [ext_resource type="Texture2D" uid="uid://71ao16e8j822" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-6.png" id="37_og4nl"]
+[ext_resource type="Texture2D" uid="uid://dqjirt3uw0y34" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-4.png" id="38_7lhy1"]
 [ext_resource type="Texture2D" uid="uid://b1ufqr6n8p4s0" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-7.png" id="38_swejp"]
+[ext_resource type="Texture2D" uid="uid://di4gqualwk6b1" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-5.png" id="39_ag0o6"]
 [ext_resource type="Texture2D" uid="uid://b7p0rvu6rmewp" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-8.png" id="39_nhf0j"]
 [ext_resource type="Texture2D" uid="uid://cimwy07g8nm2a" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-9.png" id="40_ktra0"]
+[ext_resource type="Texture2D" uid="uid://o3vj0mffbp74" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-6.png" id="40_sxifh"]
+[ext_resource type="Texture2D" uid="uid://c5xivfxh3c323" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-7.png" id="41_a7jfh"]
 [ext_resource type="Texture2D" uid="uid://bgwpvkh2lefk5" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-10.png" id="41_h0cq2"]
 [ext_resource type="Texture2D" uid="uid://dvpjiganxpn6n" path="res://assets/pissino/playerSprites/idle/sprite_sheet.png" id="41_m8i1g"]
 [ext_resource type="Script" path="res://scripts/DirectionalSprite.gd" id="42_0jjwu"]
+[ext_resource type="Texture2D" uid="uid://ce0h0o6tg3w4l" path="res://assets/pissino/attack2/27445fd9a0874b338acbcc1d896e6f93FmVBnIic5qgafiaq-8.png" id="42_1f8j8"]
 [ext_resource type="Texture2D" uid="uid://b3ro4n0v2wpp8" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-11.png" id="42_dm61q"]
 [ext_resource type="Texture2D" uid="uid://jouym88widjg" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-12.png" id="43_35ueg"]
 [ext_resource type="Texture2D" uid="uid://dme0ctcwag7me" path="res://assets/pissino/grabGun/3a542ddef2f7421db68e564bd18ea071rULzkVaKyxJ2xvMX-13.png" id="44_mfqe1"]
@@ -288,6 +301,55 @@ font_size = 25
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e1ogg"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_e8jrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_fte6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_wh1tn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_el0as")
+}],
+"loop": false,
+"name": &"attack2",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_373cu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_tbqmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_607ea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_1g5ie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_7lhy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_ag0o6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_sxifh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_a7jfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_1f8j8")
+}],
+"loop": false,
+"name": &"attack2start",
+"speed": 24.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("11_4257o")
@@ -947,6 +1009,7 @@ grow_vertical = 0
 position = Vector2(55, -132.5)
 scale = Vector2(2.06075, 1.80729)
 sprite_frames = SubResource("SpriteFrames_e1ogg")
+animation = &"attack2"
 autoplay = "default"
 
 [node name="Crosshair" type="ColorRect" parent="CanvasLayer"]
