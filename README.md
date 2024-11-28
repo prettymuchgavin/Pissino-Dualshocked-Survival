@@ -1,2 +1,3 @@
 # Pissino Dualshocked Survival (The official repository)
-The repository for the cool pissino pew pew game. yeah if your not one of the devs working on the game you probably shouldn't be here.
+The game got canned. Here's the code if you guys want to take a look around.
+IF YOU WANT TO RERELEASE THE GAME THAT'S FINE BUT PLEASE DO NOT CREDIT YOURSELF FOR EVERYTHING.
